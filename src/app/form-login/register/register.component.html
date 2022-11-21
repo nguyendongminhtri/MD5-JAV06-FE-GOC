@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px">
+                <form  class="form_center" (ngSubmit)="f.form.valid&&register()" #f="ngForm" novalidate >
+                    <mat-error class="alert alert-primary">{{status}}</mat-error>
+                    <!-- NAME -->
+                    <mat-form-field appearance="outline" style="width: 350px">
+                        <mat-label>Name:</mat-label>
+                        <input [(ngModel)]="form.name" name="name" matInput placeholder="Placeholder" #name="ngModel"
+                               minlength="3" maxlength="50" required>
+                        <mat-icon color="accent" matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-error *ngIf="name.hasError('required')">The name is required!</mat-error>
+                        <mat-error *ngIf="name.hasError('minlength')">Name must have at least 3 characters!</mat-error>
+                    </mat-form-field>
+                    <br>
+                    <!--                    USERNAME-->
+                    <mat-form-field appearance="outline" style="width: 350px">
+                        <mat-label>Username:</mat-label>
+                        <input [(ngModel)]="form.username" name="username" matInput placeholder="Placeholder"
+                               #username="ngModel" minlength="3" maxlength="50" required>
+                        <mat-icon color="accent" matSuffix>perm_contact_calendar</mat-icon>
+                        <mat-error *ngIf="username.hasError('required')">Username is required!</mat-error>
+                        <mat-error *ngIf="username.hasError('minlength')">Username must have at least 3 characters!
+                        </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <!--                    EMAIL-->
+                    <mat-form-field appearance="outline" style="width: 350px">
+                        <mat-label>Email:</mat-label>
+                        <input [(ngModel)]="form.email" [formControl]="emailFormControl" name="email" matInput
+                               placeholder="Placeholder" minlength="3" maxlength="100" required>
+                        <mat-icon color="accent" matSuffix>email</mat-icon>
+                        <mat-error *ngIf="emailFormControl.hasError('required')">Email is required!</mat-error>
+                        <mat-error *ngIf="emailFormControl.hasError('email')">Email is invalid!</mat-error>
+                    </mat-form-field>
+                    <br>
+<!--                    PASSWORD-->
+                    <mat-form-field appearance="outline" style="width: 350px">
+                        <mat-label>Enter your password</mat-label>
+                        <input name="password" [(ngModel)]="form.password" #password="ngModel" minlength="3" maxlength="100" matInput [type]="hide ? 'password' : 'text'" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon color="accent" matSuffix>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="password.hasError('required')">Password is required!</mat-error>
+                        <mat-error *ngIf="password.hasError('minlength')">Password must have at least 3 characters!</mat-error>
+                    </mat-form-field>
+                    <br>
+                    <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Register
+                        <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon>
+                    </button>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>
