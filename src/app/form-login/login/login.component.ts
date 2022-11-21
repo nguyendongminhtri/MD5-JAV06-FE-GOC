@@ -13,14 +13,20 @@ export class LoginComponent implements OnInit {
   form: any = {};
   hide = true;
   signInForm: SignInForm;
-  status = 'Please fill in the form to login!'
+  status = ''
   constructor(private authService: AuthService,
               private tokenService: TokenService,
               private router: Router) {
   }
 
   ngOnInit(): void {
-    this.status = localStorage.getItem('SUCCESS_KEY');
+    console.log('check --->', localStorage.getItem('SUCCESS_KEY'));
+    if(localStorage.getItem('SUCCESS_KEY')!=null){
+      this.status = localStorage.getItem('SUCCESS_KEY');
+    } else {
+      this.status = 'Please fill in the form to login!';
+    }
+
   }
 
   login() {
