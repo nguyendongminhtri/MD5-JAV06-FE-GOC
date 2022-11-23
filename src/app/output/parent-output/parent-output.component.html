@@ -1,0 +1,10 @@
+<p>parent-output works!</p>
+<app-child-output (dataFromChild)="showListStudent($event)"></app-child-output>
+<div *ngFor="let st of listStudent">
+    <table>
+        <tr>
+            <td>{{st.id}}</td>
+            <td>{{st.name}}</td>
+        </tr>
+    </table>
+</div>

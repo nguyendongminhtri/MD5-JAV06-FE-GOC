@@ -105,3 +105,11 @@
     </div>
   </div>
 </div>
+<h1>DEMO Input: Chuyền Data từ Bố sang Con</h1>
+<app-parent-input></app-parent-input>
+<h1>Demo Ouput: Chuyền Data từ Con sang Bố</h1>
+<app-parent-output></app-parent-output>
+<h1>Upload Singer Avatar</h1>
+<app-singer-avatar (urlFromFireBase)="uploadAvatar($event)"></app-singer-avatar>
+<h1>Upload Multiple File</h1>
+<app-mutilple-avatar (arrUrl)="onUpLoadMultiple($event)"></app-mutilple-avatar>

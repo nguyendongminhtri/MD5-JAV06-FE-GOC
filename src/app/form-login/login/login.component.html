@@ -5,7 +5,7 @@
                 <form class="form_center" #f="ngForm" (ngSubmit)="f.form.valid&&login()">
                     <mat-error class="alert alert-primary">{{status}}</mat-error>
                     <!--                    USERNAME-->
-                    <mat-form-field appearance="outline" style="width: 350px">
+                    <mat-form-field appearance="outline" >
                         <mat-label>Username:</mat-label>
                         <input [(ngModel)]="form.username" name="username" matInput placeholder="Placeholder"
                                #username="ngModel" minlength="3" maxlength="50" required>
@@ -16,7 +16,7 @@
                     </mat-form-field>
                     <br>
                     <!--                    PASSWORD-->
-                    <mat-form-field appearance="outline" style="width: 350px">
+                    <mat-form-field appearance="outline" >
                         <mat-label>Enter your password</mat-label>
                         <input name="password" [(ngModel)]="form.password" #password="ngModel" minlength="3" maxlength="100" matInput [type]="hide ? 'password' : 'text'" required>
                         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">

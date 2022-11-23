@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px">
+                <input type="file" (change)="onChangeFile($event)">
+                <button *ngIf="urlFile?!selectFile:selectFile" (click)="upLoad()" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Upload
+                    <mat-icon color="accent" matSuffix>upload_file</mat-icon>
+                </button>
+                <mat-spinner *ngIf="checkUpload"></mat-spinner>
+                <div *ngIf="urlFile">
+                    <img width="350px" height="350px" src="{{urlFile}}" alt="">
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>
