@@ -43,6 +43,9 @@ import {AuthInterceptor} from './service/auth.interceptor';
 import { UpdateAvatarComponent } from './profile/update-avatar/update-avatar.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog/dialog.component';
+import {AuthGuard} from './security/auth.guard';
+import { AdminManageComponent } from './profile/admin-manage/admin-manage.component';
+import {AdminGuard} from './security/admin.guard';
 
 
 export const appRoutes: Routes = [
@@ -54,14 +57,15 @@ export const appRoutes: Routes = [
   },
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'profile', component: ProfileComponent,
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard],
   children: [
-    {path: 'update/avatar', component: UpdateAvatarComponent}
+    {path: 'update/avatar', component: UpdateAvatarComponent},
+    {path: 'admin', component: AdminManageComponent, canActivate: [AdminGuard]}
   ]}
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParentInputComponent, ChildInputComponent, ParentOutputComponent, ChildOutputComponent, SingerAvatarComponent, MutilpleAvatarComponent, UpdateAvatarComponent, DialogComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParentInputComponent, ChildInputComponent, ParentOutputComponent, ChildOutputComponent, SingerAvatarComponent, MutilpleAvatarComponent, UpdateAvatarComponent, DialogComponent, AdminManageComponent],
   imports: [
     HttpClientModule,
     BrowserModule,

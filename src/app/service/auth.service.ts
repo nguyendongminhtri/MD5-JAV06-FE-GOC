@@ -12,12 +12,12 @@ import {ChangeAvatar} from '../model/ChangeAvatar';
 })
 export class AuthService {
   //API_LOCAL
-  // private API_SIGNUP = environment.API_LOCAL + 'signup';
-  // private API_SIGNIN = environment.API_LOCAL + 'signin';
-
+  private API_SIGNUP = environment.API_LOCAL + 'signup';
+  private API_SIGNIN = environment.API_LOCAL + 'signin';
+  private API_CHECK_ROLE = environment.API_LOCAL + 'check/role';
   //API_SERVE
-  private API_SIGNUP = environment.API_SERVE + 'signup';
-  private API_SIGNIN = environment.API_SERVE + 'signin';
+  // private API_SIGNUP = environment.API_SERVE + 'signup';
+  // private API_SIGNIN = environment.API_SERVE + 'signin';
   private API_UPDATE_AVATAR = environment.API_SERVE + 'change/avatar';
   constructor(private http: HttpClient) {
   }
@@ -29,5 +29,8 @@ export class AuthService {
   }
   updateAvatar(changeAvatar: ChangeAvatar): Observable<any>{
     return this.http.put(this.API_UPDATE_AVATAR, changeAvatar);
+  }
+  checkRole(): Observable<any>{
+    return this.http.get(this.API_CHECK_ROLE);
   }
 }

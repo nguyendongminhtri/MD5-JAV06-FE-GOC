@@ -17,9 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
     let authRequest = request;
     let token = this.tokenService.getToken();
     if(token!=null){
-      console.log('Có TOKEN RỒI ---->');
       authRequest = request.clone({headers: request.headers.set('Authorization', 'Bearer'+token)})
-      console.log('Trong Request có gì --->', authRequest);
     }
     return next.handle(authRequest);
   }
