@@ -12,13 +12,14 @@ import {ChangeAvatar} from '../model/ChangeAvatar';
 })
 export class AuthService {
   //API_LOCAL
-  private API_SIGNUP = environment.API_LOCAL + 'signup';
-  private API_SIGNIN = environment.API_LOCAL + 'signin';
-  private API_CHECK_ROLE = environment.API_LOCAL + 'check/role';
+  // private API_SIGNUP = environment.API_LOCAL + 'signup';
+  // private API_SIGNIN = environment.API_LOCAL + 'signin';
+  // private API_CHECK_ROLE = environment.API_LOCAL + 'check/role';
   //API_SERVE
-  // private API_SIGNUP = environment.API_SERVE + 'signup';
-  // private API_SIGNIN = environment.API_SERVE + 'signin';
+  private API_SIGNUP = environment.API_SERVE + 'signup';
+  private API_SIGNIN = environment.API_SERVE + 'signin';
   private API_UPDATE_AVATAR = environment.API_SERVE + 'change/avatar';
+  private API_CHECK_ROLE = environment.API_SERVE + 'check/role'
   constructor(private http: HttpClient) {
   }
   signUp(signUpForm: SignUpForm): Observable<any>{
